@@ -1,6 +1,27 @@
+const scissorBtn = document.getElementById("scissor")
+const rockBtn = document.getElementById("rock")
+const paperBtn = document.getElementById("paper")
+
+const resultDiv = document.getElementById("results")
+const scoreDiv = document.getElementById("score")
+
+
+scissorBtn.addEventListener("click", () => {
+  playRound("scissor", getComputerChoice())
+})
+
+rockBtn.addEventListener("click", () => {
+  playRound("rock", getComputerChoice())
+})
+
+paperBtn.addEventListener("click", () => {
+  playRound("paper", getComputerChoice())
+})
+
 
 let humanScore = 0
 let computerScore = 0
+
 
 const getComputerChoice = () => {
   const randomNr = Math.floor( Math.random() * 3)
@@ -10,43 +31,29 @@ const getComputerChoice = () => {
   if(randomNr === 2) return "scissor"
 }
 
-const getHumanChoice = () => {
-  const choice = prompt("Choose one of the following (Rock, paper, scissor)")
-  return choice.toLowerCase()
-}
 
 const playRound = (humanChoice, compChoice) => {
 
   if(humanChoice === compChoice){
-    console.log(`Both chose ${compChoice} its a tie`)
+    resultDiv.textContent = `Both chose ${compChoice} its a tie`
   } else if(humanChoice === "rock" && compChoice === "scissor" 
       || humanChoice === "paper" && compChoice === "rock" 
       || humanChoice === "scissor" && compChoice === "paper" ){
-    console.log(`You win ${humanChoice} beats ${compChoice}`)
+    resultDiv.textContent = `You win ${humanChoice} beats ${compChoice}`
     humanScore ++
   } else {
-    console.log(`You choosed ${humanChoice} computer chose ${compChoice} you loose`)
+    resultDiv.textContent = `You choosed ${humanChoice} computer chose ${compChoice} you loose`
     computerScore ++
   }
+  scoreDiv.textContent = `Player score: ${humanScore}, Computer score: ${computerScore}`
+  calcWinner(humanScore, computerScore)
 }
 
-const playGame = () => {
-  for(let i = 0; i < 5; i++){
-    const humanSelected = getHumanChoice()
-    const compSelected = getComputerChoice()
-
-    playRound(humanSelected, compSelected)
-  }
-  
-  if(humanScore > computerScore) return console.log(`Game is over you won, score: You(${humanScore}) computerscore: ${computerScore}`)
-  if(humanScore < computerScore){
-    console.log(`Game is over you lost, score: You(${humanScore}) computerscore: ${computerScore}`)
-  } else {
-    console.log(`Game is over ITS A TIE, score: You(${humanScore}) computerscore: ${computerScore}`)
-  }
+const calcWinner = (humanScore, computerScore) => {
+  if(humanScore === 5) return alert("Game ended player won")
+  if(computerScore === 5) return alert("Game ended computer won")
 }
 
-playGame()
 
 
 
