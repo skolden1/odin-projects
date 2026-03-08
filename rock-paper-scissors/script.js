@@ -46,12 +46,23 @@ const playRound = (humanChoice, compChoice) => {
     computerScore ++
   }
   scoreDiv.textContent = `Player score: ${humanScore}, Computer score: ${computerScore}`
-  calcWinner(humanScore, computerScore)
+  calcWinner()
 }
 
-const calcWinner = (humanScore, computerScore) => {
-  if(humanScore === 5) return alert("Game ended player won")
-  if(computerScore === 5) return alert("Game ended computer won")
+const calcWinner = () => {
+  if (humanScore === 5) {
+    alert("Game ended player won")
+    humanScore = 0
+    computerScore = 0
+  }
+
+  if (computerScore === 5) {
+    alert("Game ended computer won")
+    humanScore = 0
+    computerScore = 0
+  }
+
+  scoreDiv.textContent = `Player score: ${humanScore}, Computer score: ${computerScore}`
 }
 
 
