@@ -1,0 +1,139 @@
+body{
+  background-color: #ccc;
+}
+
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  padding: 20px;
+}
+.card {
+  width: 250px;
+  min-height: 180px;
+  padding: 15px;
+  border-radius: 12px;
+  background: white;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.controls {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.newBookBtn{
+  padding: 10px 10px;
+  border: none;
+  background-color: black;
+  color: aliceblue;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.newBookBtn:hover{
+  background-color: rgba(0, 0, 0, 0.61);
+}
+
+.newBookBtn.hide{
+  display: none;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.field input {
+  padding: 8px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+
+form {
+  position: relative;
+  width: 350px;
+  padding: 20px;
+  border-radius: 12px;
+  background: white;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+form input,
+form label
+{
+  margin-bottom: 5px;
+}
+
+.closeBtn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+
+  border: none;
+  background: transparent;
+  font-size: 18px;
+  cursor: pointer;
+}
+.closeBtn:hover{
+  background-color: rgb(197, 212, 226);
+  cursor: pointer;
+}
+
+.submitBtn {
+  background-color: black;
+  color: white;
+  padding: 10px;
+  border-radius: 8px;
+  border: none;
+}
+
+.submitBtn:hover {
+  opacity: 0.8;
+  cursor: pointer;
+}
+
+.hidden {
+  display: none;
+}
+
+.removeBtn{
+  background-color: rgb(206, 94, 94);
+  border: none;
+  padding: 6px;
+  border-radius: 5px;
+  color: whitesmoke;
+  cursor: pointer;
+}
+
+.removeBtn:hover{
+  background-color: rgba(206, 94, 94, 0.568);
+}
+
+.read {
+  opacity: 0.6;
+  text-decoration: line-through;
+}
+
+.toggleBtn{
+  background-color: rgb(66, 123, 189);
+  border: none;
+  padding: 6px;
+  border-radius: 5px;
+  color: whitesmoke;
+  cursor: pointer;
+}
+
+.toggleBtn:hover{
+  background-color: rgba(66, 123, 189, 0.76);
+}
